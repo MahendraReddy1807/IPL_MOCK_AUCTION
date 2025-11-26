@@ -52,24 +52,29 @@ def create_room(host_username):
         )
         
         session.add(room)
-        session.commit()
+        session.flush()  # Flush to get the ID without committing
+        
+        # Extract data while session is still open
+        room_code_val = room.code
+        room_id = room.id
+        room_status = room.status
+        room_host = room.host_username
+        room_min_users = room.min_users
+        room_max_users = room.max_users
         
         # Add host as first user
         host_user = User(username=host_username, room_id=room.id)
         session.add(host_user)
         session.commit()
         
-        # Refresh to ensure all attributes are loaded before session closes
-        session.refresh(room)
-        
-        # Create a detached copy with the data we need
+        # Create a detached copy with the extracted data
         room_data = type('Room', (), {
-            'code': room.code,
-            'id': room.id,
-            'status': room.status,
-            'host_username': room.host_username,
-            'min_users': room.min_users,
-            'max_users': room.max_users
+            'code': room_code_val,
+            'id': room_id,
+            'status': room_status,
+            'host_username': room_host,
+            'min_users': room_min_users,
+            'max_users': room_max_users
         })()
         
         return room_data
