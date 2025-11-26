@@ -108,3 +108,18 @@ def render():
         - Team rating and analysis
         - Impact player selection
         """)
+    
+    # Debug info
+    with st.expander("🔧 Debug Info"):
+        import os
+        from config import Config, DB_PATH
+        from models.base import DB_SCHEMA_VERSION
+        
+        st.code(f"""
+Database Path: {DB_PATH}
+Database URL: {Config.SQLALCHEMY_DATABASE_URI}
+Schema Version: {DB_SCHEMA_VERSION}
+Min Users: {Config.MIN_USERS}
+Timer Duration: {Config.TIMER_DURATION}s
+Environment: {'Streamlit Cloud' if os.getenv('STREAMLIT_SHARING') or os.getenv('STREAMLIT_CLOUD') else 'Local'}
+        """)

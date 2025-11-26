@@ -6,7 +6,7 @@ from sqlalchemy.orm import sessionmaker, scoped_session
 from config import Config
 
 # Database schema version - increment this when schema changes
-DB_SCHEMA_VERSION = 2  # Updated for min_users=2 and timer=60s
+DB_SCHEMA_VERSION = 3  # Force reset: min_users=2 and timer=60s, use /tmp on cloud
 
 # Create engine
 engine = create_engine(
