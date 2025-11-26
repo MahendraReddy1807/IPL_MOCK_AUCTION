@@ -1,8 +1,12 @@
 """Base database setup for SQLAlchemy."""
+import os
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, scoped_session
 from config import Config
+
+# Database schema version - increment this when schema changes
+DB_SCHEMA_VERSION = 2  # Updated for min_users=2 and timer=60s
 
 # Create engine
 engine = create_engine(
@@ -20,7 +24,43 @@ Base = declarative_base()
 
 def init_db():
     """Initialize database - create all tables."""
-    Base.metadata.create_all(engine)
+    # Check if we need to reset the database due to schema changes
+    if 'sqlite' in Config.SQLALCHEMY_DATABASE_URI:
+        db_path = Config.SQLALCHEMY_DATABASE_URI.replace('sqlite:///', '')
+        version_file = db_path + '.version'
+        
+        # Check current version
+        current_version = None
+        if os.path.exists(version_file):
+            try:
+                with open(version_file, 'r') as f:
+                    current_version = int(f.read().strip())
+            except:
+                current_version = None
+        
+        # If version mismatch, drop and recreate
+        if current_version != DB_SCHEMA_VERSION:
+            if os.path.exists(db_path):
+                try:
+                    os.remove(db_path)
+                except:
+                    pass  # If we can't delete, create_all will handle it
+            
+            # Create all tables
+            Base.metadata.create_all(engine)
+            
+            # Write new version
+            try:
+                with open(version_file, 'w') as f:
+                    f.write(str(DB_SCHEMA_VERSION))
+            except:
+                pass  # Non-critical if we can't write version
+        else:
+            # Version matches, just ensure tables exist
+            Base.metadata.create_all(engine)
+    else:
+        # For non-SQLite databases, just create tables
+        Base.metadata.create_all(engine)
 
 
 def get_session():
