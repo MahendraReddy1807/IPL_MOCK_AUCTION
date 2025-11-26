@@ -6,7 +6,15 @@ from pathlib import Path
 BASE_DIR = Path(__file__).parent
 
 # Database configuration
-DATABASE_URL = os.getenv('DATABASE_URL', f'sqlite:///{BASE_DIR}/auction.db')
+# Use /tmp for database on Streamlit Cloud (writable), otherwise use app directory
+if os.getenv('STREAMLIT_SHARING') or os.getenv('STREAMLIT_CLOUD'):
+    # Running on Streamlit Cloud - use /tmp directory
+    DB_PATH = '/tmp/auction.db'
+else:
+    # Running locally - use app directory
+    DB_PATH = f'{BASE_DIR}/auction.db'
+
+DATABASE_URL = os.getenv('DATABASE_URL', f'sqlite:///{DB_PATH}')
 
 # Application settings
 SECRET_KEY = os.getenv('SECRET_KEY', 'dev-secret-key-change-in-production')

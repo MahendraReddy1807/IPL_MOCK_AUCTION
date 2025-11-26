@@ -28,6 +28,8 @@ Open multiple browser windows/tabs to test multi-user functionality.
 3. **Configuration:**
    - No additional configuration needed for basic deployment
    - Database will be created automatically on first run
+   - **Note**: Database is stored in `/tmp` on Streamlit Cloud and is ephemeral (resets on app restart)
+   - For persistent data, consider using a cloud database (PostgreSQL, etc.)
 
 4. **Access:**
    - Your app will be available at: `https://[your-app-name].streamlit.app`
