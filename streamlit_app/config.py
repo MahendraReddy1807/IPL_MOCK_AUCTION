@@ -6,14 +6,24 @@ from pathlib import Path
 BASE_DIR = Path(__file__).parent
 
 # Database configuration
-# Use /tmp for database on Streamlit Cloud (writable), otherwise use app directory
-if os.getenv('STREAMLIT_SHARING') or os.getenv('STREAMLIT_CLOUD'):
-    # Running on Streamlit Cloud - use /tmp directory
-    DB_PATH = '/tmp/auction.db'
-else:
-    # Running locally - use app directory
-    DB_PATH = f'{BASE_DIR}/auction.db'
+# Detect if running on Streamlit Cloud or if app directory is not writable
+def get_db_path():
+    """Get appropriate database path based on environment."""
+    # Check for Streamlit Cloud environment variables
+    if os.getenv('STREAMLIT_SHARING') or os.getenv('STREAMLIT_CLOUD') or os.getenv('HOSTNAME', '').startswith('streamlit'):
+        return '/tmp/auction.db'
+    
+    # Check if app directory is writable
+    test_file = BASE_DIR / '.write_test'
+    try:
+        test_file.touch()
+        test_file.unlink()
+        return f'{BASE_DIR}/auction.db'
+    except:
+        # Not writable, use /tmp
+        return '/tmp/auction.db'
 
+DB_PATH = get_db_path()
 DATABASE_URL = os.getenv('DATABASE_URL', f'sqlite:///{DB_PATH}')
 
 # Application settings

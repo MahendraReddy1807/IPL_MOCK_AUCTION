@@ -38,15 +38,27 @@ def init_db():
             except:
                 current_version = None
         
-        # If version mismatch, drop and recreate
+        # If version mismatch or no version file, drop and recreate
         if current_version != DB_SCHEMA_VERSION:
+            # Try to remove old database
             if os.path.exists(db_path):
                 try:
                     os.remove(db_path)
-                except:
-                    pass  # If we can't delete, create_all will handle it
+                except Exception as e:
+                    # If we can't delete, try to drop all tables
+                    try:
+                        Base.metadata.drop_all(engine)
+                    except:
+                        pass
             
-            # Create all tables
+            # Remove old version file
+            if os.path.exists(version_file):
+                try:
+                    os.remove(version_file)
+                except:
+                    pass
+            
+            # Create all tables with new schema
             Base.metadata.create_all(engine)
             
             # Write new version
