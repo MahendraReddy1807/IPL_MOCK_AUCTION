@@ -59,7 +59,20 @@ def create_room(host_username):
         session.add(host_user)
         session.commit()
         
-        return room
+        # Refresh to ensure all attributes are loaded before session closes
+        session.refresh(room)
+        
+        # Create a detached copy with the data we need
+        room_data = type('Room', (), {
+            'code': room.code,
+            'id': room.id,
+            'status': room.status,
+            'host_username': room.host_username,
+            'min_users': room.min_users,
+            'max_users': room.max_users
+        })()
+        
+        return room_data
     except Exception as e:
         session.rollback()
         raise e
@@ -179,6 +192,21 @@ def get_room(room_code):
     """
     session = get_session()
     try:
-        return session.query(Room).filter_by(code=room_code).first()
+        room = session.query(Room).filter_by(code=room_code).first()
+        if not room:
+            return None
+        
+        # Create a detached copy with the data we need
+        room_data = type('Room', (), {
+            'code': room.code,
+            'id': room.id,
+            'status': room.status,
+            'host_username': room.host_username,
+            'min_users': room.min_users,
+            'max_users': room.max_users,
+            'users': list(room.users)  # Copy the users list
+        })()
+        
+        return room_data
     finally:
         session.close()
