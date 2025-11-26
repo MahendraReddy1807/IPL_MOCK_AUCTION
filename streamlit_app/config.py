@@ -13,9 +13,9 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'dev-secret-key-change-in-production')
 DEBUG = os.getenv('DEBUG', 'False').lower() == 'true'
 
 # Auction settings
-MIN_USERS = 5
+MIN_USERS = 2
 MAX_USERS = 10
-TIMER_DURATION = 30  # seconds
+TIMER_DURATION = 60  # seconds
 BID_INCREMENT = 5.0  # Lakhs
 DEFAULT_PURSE = 100.0  # Lakhs
 

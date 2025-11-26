@@ -4,7 +4,7 @@ A real-time multiplayer web application for simulating IPL player auctions with 
 
 ## 🎯 Overview
 
-The IPL Mock Auction Arena enables 5-10 users to participate in simulated IPL player auctions with real-time bidding, automatic team analysis, and AI-based predictions for optimal team composition. The application features:
+The IPL Mock Auction Arena enables 2-10 users to participate in simulated IPL player auctions with real-time bidding, automatic team analysis, and AI-based predictions for optimal team composition. The application features:
 
 - **Real-time Multiplayer Auctions**: Bid on players with live updates via WebSocket
 - **AI Team Analysis**: Automatic playing XI selection and team rating calculation
@@ -186,7 +186,7 @@ The IPL Mock Auction Arena enables 5-10 users to participate in simulated IPL pl
 1. Open the application in your browser
 2. Enter your username
 3. Click "Create Room"
-4. Share the room code with other participants (5-10 players required)
+4. Share the room code with other participants (2-10 players required)
 
 ### Joining an Auction
 
@@ -204,7 +204,7 @@ The IPL Mock Auction Arena enables 5-10 users to participate in simulated IPL pl
 ### During the Auction
 
 1. The host starts the auction when all participants are ready
-2. Players are presented one by one with a 30-second timer
+2. Players are presented one by one with a 60-second timer
 3. Click "Place Bid" to increase the current bid
 4. The highest bidder when the timer expires wins the player
 5. Your purse is automatically updated after each purchase
@@ -271,7 +271,7 @@ The IPL Mock Auction Arena enables 5-10 users to participate in simulated IPL pl
   - Data: `{ "username": "string", "participants_count": number }`
 
 - `player_presented` - New player presented for auction
-  - Data: `{ "player": {}, "timer_duration": 30 }`
+  - Data: `{ "player": {}, "timer_duration": 60 }`
 
 - `bid_placed` - Bid placed successfully
   - Data: `{ "username": "string", "bid_amount": number, "current_highest": "string" }`

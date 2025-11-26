@@ -96,9 +96,9 @@ def render():
         1. **Enter your username** to get started
         2. **Create a room** or **join an existing room** with a code
         3. **Configure your team** in the lobby (name, logo, starting purse)
-        4. **Wait for all participants** to join (5-10 players required)
+        4. **Wait for all participants** to join (2-10 players required)
         5. **Host starts the auction** when everyone is ready
-        6. **Bid on players** during the auction (30 seconds per player)
+        6. **Bid on players** during the auction (60 seconds per player)
         7. **View results** with AI-powered team ratings and playing XI selection
         
         **Features:**

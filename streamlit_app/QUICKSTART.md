@@ -52,7 +52,7 @@ The app will open automatically in your browser at `http://localhost:8501`
 
 ### Start the Auction
 
-1. Wait for 5-10 players to join and configure teams
+1. Wait for 2-10 players to join and configure teams
 2. As host, click "Start Auction" in the lobby
 3. Players will be presented one by one
 4. Click "Place Bid" to bid on players
@@ -145,7 +145,7 @@ cp ../backend/data/players.csv data/
 - ✅ 100+ IPL players with stats
 - ✅ Automatic playing XI selection
 - ✅ AI-powered team ratings
-- ✅ 30-second timer per player
+- ✅ 60-second timer per player
 - ✅ Multi-user synchronization
 - ✅ Responsive design
 

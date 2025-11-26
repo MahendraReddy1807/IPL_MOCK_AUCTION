@@ -62,8 +62,8 @@ A unified Streamlit application for simulating IPL player auctions with real-tim
 1. **Enter Username** - Start by entering your unique username
 2. **Create/Join Room** - Create a new room or join with a 6-character code
 3. **Configure Team** - Set team name, upload logo, and choose starting purse
-4. **Wait for Players** - Need 5-10 participants to start
-5. **Bid on Players** - 30 seconds per player, place bids to build your squad
+4. **Wait for Players** - Need 2-10 participants to start
+5. **Bid on Players** - 60 seconds per player, place bids to build your squad
 6. **View Results** - See AI-powered team ratings and playing XI selection
 
 ## 🏗️ Architecture
@@ -82,9 +82,9 @@ streamlit_app/
 ## 🔧 Configuration
 
 Edit `config.py` to customize:
-- Timer duration (default: 30 seconds)
+- Timer duration (default: 60 seconds)
 - Bid increment (default: 5 Lakhs)
-- Room capacity (5-10 players)
+- Room capacity (2-10 players)
 - Polling interval (default: 2 seconds)
 
 ## 📊 Features

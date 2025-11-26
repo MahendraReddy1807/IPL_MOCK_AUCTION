@@ -1,6 +1,7 @@
 """Auction engine service."""
 from datetime import datetime
 from models import get_session, Room, Player, AuctionPlayer, Team, TeamPlayer
+from config import Config
 
 
 class AuctionState:
@@ -62,7 +63,7 @@ def initialize_auction(room_code):
             'current_bid': None,
             'highest_bidder': None,
             'bid_increment': 5.0,
-            'timer_duration': 30,
+            'timer_duration': Config.TIMER_DURATION,
             'timer_start': None
         }
         
@@ -95,7 +96,7 @@ def present_next_player(room_code):
         if room_code not in _auction_states:
             _auction_states[room_code] = {
                 'bid_increment': 5.0,
-                'timer_duration': 30
+                'timer_duration': Config.TIMER_DURATION
             }
         
         _auction_states[room_code]['current_player_id'] = player.id
@@ -239,7 +240,7 @@ def get_current_auction_state(room_code):
             current_player=current_player,
             current_bid=state['current_bid'],
             highest_bidder=state['highest_bidder'],
-            timer_remaining=state.get('timer_duration', 30),
+            timer_remaining=state.get('timer_duration', Config.TIMER_DURATION),
             auction_complete=auction_complete
         )
     finally:
