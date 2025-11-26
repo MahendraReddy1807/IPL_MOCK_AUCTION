@@ -24,6 +24,8 @@ Base = declarative_base()
 
 def init_db():
     """Initialize database - create all tables."""
+    global engine, Session
+    
     # Check if we need to reset the database due to schema changes
     if 'sqlite' in Config.SQLALCHEMY_DATABASE_URI:
         db_path = Config.SQLALCHEMY_DATABASE_URI.replace('sqlite:///', '')
@@ -40,16 +42,19 @@ def init_db():
         
         # If version mismatch or no version file, drop and recreate
         if current_version != DB_SCHEMA_VERSION:
-            # Try to remove old database
+            # Close any existing connections
+            try:
+                engine.dispose()
+            except:
+                pass
+            
+            # Remove old database file
             if os.path.exists(db_path):
                 try:
                     os.remove(db_path)
+                    print(f"Removed old database: {db_path}")
                 except Exception as e:
-                    # If we can't delete, try to drop all tables
-                    try:
-                        Base.metadata.drop_all(engine)
-                    except:
-                        pass
+                    print(f"Could not remove database: {e}")
             
             # Remove old version file
             if os.path.exists(version_file):
@@ -58,8 +63,19 @@ def init_db():
                 except:
                     pass
             
+            # Recreate engine with fresh database
+            engine = create_engine(
+                Config.SQLALCHEMY_DATABASE_URI,
+                connect_args={'check_same_thread': False} if 'sqlite' in Config.SQLALCHEMY_DATABASE_URI else {}
+            )
+            
+            # Recreate session factory
+            session_factory = sessionmaker(bind=engine)
+            Session = scoped_session(session_factory)
+            
             # Create all tables with new schema
             Base.metadata.create_all(engine)
+            print(f"Created new database with schema version {DB_SCHEMA_VERSION}")
             
             # Write new version
             try:
