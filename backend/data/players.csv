@@ -1,0 +1,96 @@
+name,role,country,base_price,batting_score,bowling_score,overall_score,is_overseas
+Virat Kohli,BAT,India,15.0,95.5,15.0,88.2,False
+Rohit Sharma,BAT,India,14.0,92.0,20.0,85.5,False
+KL Rahul,WK,India,11.0,88.5,10.0,82.0,False
+Rishabh Pant,WK,India,12.0,90.0,5.0,84.5,False
+Hardik Pandya,AR,India,13.0,82.0,78.0,86.0,False
+Ravindra Jadeja,AR,India,12.0,75.0,85.0,84.5,False
+Jasprit Bumrah,BOWL,India,14.0,10.0,96.0,88.0,False
+Mohammed Shami,BOWL,India,10.0,8.0,92.0,82.5,False
+Yuzvendra Chahal,BOWL,India,8.0,5.0,88.0,78.0,False
+Kuldeep Yadav,BOWL,India,7.0,5.0,86.0,76.5,False
+Shubman Gill,BAT,India,9.0,87.0,12.0,80.5,False
+Shreyas Iyer,BAT,India,10.0,85.0,15.0,79.0,False
+Suryakumar Yadav,BAT,India,9.0,89.0,10.0,82.5,False
+Ishan Kishan,WK,India,8.0,84.0,8.0,78.0,False
+Axar Patel,AR,India,8.0,70.0,82.0,79.5,False
+Washington Sundar,AR,India,7.0,68.0,80.0,77.0,False
+Shardul Thakur,AR,India,8.0,65.0,78.0,75.5,False
+Mohammed Siraj,BOWL,India,9.0,10.0,89.0,80.0,False
+Bhuvneshwar Kumar,BOWL,India,8.0,12.0,87.0,78.5,False
+Arshdeep Singh,BOWL,India,6.0,8.0,84.0,74.0,False
+David Warner,BAT,Australia,12.0,91.0,18.0,84.0,True
+Steve Smith,BAT,Australia,11.0,89.0,20.0,82.5,True
+Glenn Maxwell,AR,Australia,10.0,83.0,76.0,82.0,True
+Pat Cummins,BOWL,Australia,13.0,15.0,94.0,86.5,True
+Mitchell Starc,BOWL,Australia,12.0,12.0,93.0,85.0,True
+Josh Hazlewood,BOWL,Australia,10.0,8.0,91.0,82.0,True
+Marcus Stoinis,AR,Australia,8.0,78.0,74.0,77.5,True
+Adam Zampa,BOWL,Australia,7.0,6.0,85.0,76.0,True
+Travis Head,BAT,Australia,9.0,86.0,16.0,79.5,True
+Alex Carey,WK,Australia,7.0,80.0,10.0,75.0,True
+Jos Buttler,WK,England,13.0,92.0,8.0,85.5,True
+Ben Stokes,AR,England,14.0,85.0,82.0,87.0,True
+Joe Root,BAT,England,11.0,90.0,22.0,83.5,True
+Jonny Bairstow,WK,England,9.0,87.0,10.0,80.5,True
+Sam Curran,AR,England,10.0,72.0,84.0,81.0,True
+Jofra Archer,BOWL,England,11.0,14.0,92.0,84.0,True
+Mark Wood,BOWL,England,9.0,10.0,90.0,81.0,True
+Adil Rashid,BOWL,England,7.0,8.0,86.0,77.0,True
+Moeen Ali,AR,England,8.0,76.0,79.0,79.0,True
+Chris Woakes,AR,England,8.0,68.0,83.0,78.5,True
+Kane Williamson,BAT,New Zealand,11.0,88.0,18.0,81.5,True
+Trent Boult,BOWL,New Zealand,10.0,10.0,91.0,82.5,True
+Tim Southee,BOWL,New Zealand,8.0,12.0,88.0,79.0,True
+Lockie Ferguson,BOWL,New Zealand,7.0,8.0,87.0,77.5,True
+Mitchell Santner,AR,New Zealand,7.0,70.0,81.0,77.5,True
+Devon Conway,WK,New Zealand,8.0,85.0,10.0,78.5,True
+Daryl Mitchell,AR,New Zealand,7.0,74.0,75.0,76.0,True
+Quinton de Kock,WK,South Africa,10.0,89.0,8.0,81.5,True
+Kagiso Rabada,BOWL,South Africa,11.0,12.0,93.0,84.5,True
+Anrich Nortje,BOWL,South Africa,9.0,10.0,90.0,81.0,True
+Aiden Markram,BAT,South Africa,8.0,84.0,16.0,78.0,True
+David Miller,BAT,South Africa,9.0,86.0,14.0,79.5,True
+Keshav Maharaj,BOWL,South Africa,6.0,8.0,84.0,74.5,True
+Prithvi Shaw,BAT,India,6.0,82.0,10.0,75.5,False
+Ruturaj Gaikwad,BAT,India,7.0,83.0,12.0,76.5,False
+Deepak Chahar,BOWL,India,7.0,15.0,85.0,77.0,False
+Harshal Patel,BOWL,India,7.0,12.0,86.0,77.5,False
+Avesh Khan,BOWL,India,6.0,8.0,83.0,74.0,False
+Ravi Bishnoi,BOWL,India,5.0,6.0,82.0,72.5,False
+Tilak Varma,BAT,India,5.0,80.0,10.0,73.5,False
+Shivam Dube,AR,India,6.0,72.0,70.0,72.5,False
+Rinku Singh,BAT,India,5.0,78.0,8.0,71.5,False
+Yashasvi Jaiswal,BAT,India,6.0,81.0,10.0,74.5,False
+Abhishek Sharma,AR,India,5.0,75.0,68.0,73.0,False
+Rahul Tripathi,BAT,India,6.0,79.0,12.0,73.5,False
+Sanju Samson,WK,India,8.0,86.0,8.0,79.0,False
+Devdutt Padikkal,BAT,India,5.0,77.0,10.0,71.0,False
+Nitish Rana,BAT,India,6.0,80.0,14.0,74.0,False
+Venkatesh Iyer,AR,India,6.0,74.0,72.0,74.5,False
+Krunal Pandya,AR,India,7.0,68.0,76.0,74.5,False
+Rahul Chahar,BOWL,India,5.0,6.0,81.0,71.5,False
+Prasidh Krishna,BOWL,India,6.0,8.0,84.0,74.5,False
+Umran Malik,BOWL,India,6.0,6.0,85.0,75.0,False
+Mukesh Kumar,BOWL,India,4.0,8.0,80.0,70.0,False
+Khaleel Ahmed,BOWL,India,5.0,8.0,82.0,72.5,False
+T Natarajan,BOWL,India,6.0,10.0,83.0,74.0,False
+Rashid Khan,BOWL,Afghanistan,12.0,18.0,95.0,87.5,True
+Mujeeb Ur Rahman,BOWL,Afghanistan,6.0,8.0,84.0,75.0,True
+Fazalhaq Farooqi,BOWL,Afghanistan,5.0,6.0,82.0,72.5,True
+Wanindu Hasaranga,AR,Sri Lanka,8.0,65.0,88.0,80.0,True
+Maheesh Theekshana,BOWL,Sri Lanka,6.0,8.0,83.0,74.0,True
+Pathum Nissanka,BAT,Sri Lanka,5.0,78.0,10.0,71.5,True
+Dasun Shanaka,AR,Sri Lanka,6.0,70.0,74.0,73.5,True
+Matheesha Pathirana,BOWL,Sri Lanka,5.0,6.0,84.0,73.5,True
+Shakib Al Hasan,AR,Bangladesh,9.0,76.0,86.0,83.0,True
+Mustafizur Rahman,BOWL,Bangladesh,7.0,8.0,87.0,77.5,True
+Taskin Ahmed,BOWL,Bangladesh,6.0,8.0,84.0,74.5,True
+Nicholas Pooran,WK,West Indies,9.0,88.0,8.0,80.5,True
+Andre Russell,AR,West Indies,10.0,80.0,82.0,83.0,True
+Sunil Narine,AR,West Indies,9.0,65.0,90.0,81.5,True
+Jason Holder,AR,West Indies,8.0,68.0,84.0,79.0,True
+Alzarri Joseph,BOWL,West Indies,7.0,10.0,86.0,77.0,True
+Romario Shepherd,AR,West Indies,6.0,70.0,76.0,74.5,True
+Akeal Hosein,BOWL,West Indies,6.0,8.0,83.0,74.0,True
+Kyle Mayers,AR,West Indies,7.0,74.0,78.0,77.5,True

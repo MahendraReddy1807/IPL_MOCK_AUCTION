@@ -1,0 +1,65 @@
+═══════════════════════════════════════════════════════════════
+  EXACT COMMANDS TO RUN - COPY & PASTE THESE
+═══════════════════════════════════════════════════════════════
+
+IMPORTANT: Run these from PowerShell in the project root directory:
+C:\Users\tmrma\OneDrive\Documents\IPL MOCK AUCTION
+
+───────────────────────────────────────────────────────────────
+STEP 1: Clean Up Nested Git Repos
+───────────────────────────────────────────────────────────────
+
+Remove-Item -Recurse -Force .kiro\.git -ErrorAction SilentlyContinue
+Remove-Item -Recurse -Force .kiro\specs\.git -ErrorAction SilentlyContinue
+Remove-Item -Recurse -Force .git -ErrorAction SilentlyContinue
+
+───────────────────────────────────────────────────────────────
+STEP 2: Initialize Git Properly
+───────────────────────────────────────────────────────────────
+
+git init
+git add .
+git commit -m "IPL Mock Auction Arena - Streamlit Edition"
+git branch -M main
+
+───────────────────────────────────────────────────────────────
+STEP 3: Add GitHub Remote
+───────────────────────────────────────────────────────────────
+
+git remote add origin https://github.com/MahendraReddy1807/IPL_MOCK_AUCTION.git
+
+───────────────────────────────────────────────────────────────
+STEP 4: Push to GitHub
+───────────────────────────────────────────────────────────────
+
+git push -u origin main
+
+───────────────────────────────────────────────────────────────
+STEP 5: Deploy to Streamlit Cloud
+───────────────────────────────────────────────────────────────
+
+1. Go to: https://share.streamlit.io
+2. Sign in with GitHub
+3. Click "New app"
+4. Repository: MahendraReddy1807/IPL_MOCK_AUCTION
+5. Branch: main
+6. Main file: streamlit_app/app.py
+7. Click "Deploy!"
+
+═══════════════════════════════════════════════════════════════
+
+ALTERNATIVE: Run the automated script:
+
+.\fix_git_and_deploy.ps1
+
+═══════════════════════════════════════════════════════════════
+
+TEST LOCALLY FIRST (Optional):
+
+cd streamlit_app
+pip install streamlit sqlalchemy pandas pillow
+streamlit run app.py
+
+Open: http://localhost:8501
+
+═══════════════════════════════════════════════════════════════
