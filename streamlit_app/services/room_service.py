@@ -37,7 +37,7 @@ def create_room(host_username):
         host_username: Username of the host creating the room
         
     Returns:
-        Room: Created room object
+        Room: Created room object (detached from session)
     """
     session = get_session()
     try:
